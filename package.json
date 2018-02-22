@@ -1,0 +1,24 @@
+{
+  "name": "fileblockreader",
+  "version": "1.0.0",
+  "description": "read files by blocks",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "npm run clean && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "rimraf": "./node_modules/rimraf/bin.js"
+  },
+  "author": "Zhekov Fedor",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^9.4.6",
+    "rimraf": "^2.6.2"
+  },
+  "devDependencies": {
+    "typescript": "^2.7.2"
+  }
+}
