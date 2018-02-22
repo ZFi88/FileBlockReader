@@ -1,7 +1,7 @@
 {
   "name": "file-block-reader",
   "version": "1.0.0",
-  "description": "read files by blocks",
+  "description": "Read files by blocks",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -20,5 +20,9 @@
   },
   "devDependencies": {
     "typescript": "^2.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZFi88/FileBlockReader"
   }
 }
