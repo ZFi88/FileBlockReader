@@ -46,10 +46,10 @@ function* read(path: string, blockSize: number) {
     if (parts - Math.floor(parts) > 0) {
         parts = Math.floor(parts) + 1;
     }
-
     let start = 0;
     for (let i = 1; i <= parts; i++) {
-        yield fs.createReadStream(path, {start, end: (blockSize * i) - 1});
+        const end = (blockSize * i) - 1;
+        yield fs.createReadStream(path, {start, end: end > size ? size - 1 : end});
         start += blockSize;
     }
 }
