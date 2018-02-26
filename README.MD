@@ -7,7 +7,7 @@ Read files by blocks
 
 ## Usage
 ```typescript
-const {FileBlockReader} = require('fileblockreader');
+const {FileBlockReader} = require('file-block-reader');
 
 //...
 
