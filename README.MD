@@ -19,7 +19,7 @@ reader.read((blockIndex: number, chunk: Buffer) => {
 //Or read file by 5Mb blocks using generator
 const generator = reader.read();
 while (true) {
-    const {value, done} = generator.next(); //get next block
+    const {value, done} = generator.next(); //get next block buffer
     if (done) break;
 }
 ```

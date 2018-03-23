@@ -37,19 +37,24 @@ export class FileBlockReader {
             }
         });
     }
-
 }
 
 function* read(path: string, blockSize: number) {
-    const {size} = fs.statSync(path);
+    const { size } = fs.statSync(path);
     let parts = size / blockSize;
     if (parts - Math.floor(parts) > 0) {
         parts = Math.floor(parts) + 1;
     }
+    const fd = fs.openSync(path, 'r');
     let start = 0;
     for (let i = 1; i <= parts; i++) {
-        const end = (blockSize * i) - 1;
-        yield fs.createReadStream(path, {start, end: end > size ? size - 1 : end});
+        let end = (blockSize * i) - 1;
+        end = end >= size ? size - 1 : end;
+        const length = end - start;
+        let buffer = new Buffer(length);
+        fs.readSync(fd, buffer, 0, length, null);
+        yield buffer;
         start += blockSize;
     }
+    fs.closeSync(fd);
 }
